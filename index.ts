@@ -38,7 +38,8 @@ export class GildedRose {
       //   if current item is not Aged Brie and Backstage passes
       if (
         this.items[i].name != "Aged Brie" &&
-        this.items[i].name != "Backstage passes to a TAFKAL80ETC concert"
+        this.items[i].name != "Backstage passes to a TAFKAL80ETC concert" &&
+        !this.items[i].name.startsWith("Conjured")
       ) {
         // if current item quality is greater than 0 and current item is not Sulfuras
         if (this.items[i].quality > 0) {
