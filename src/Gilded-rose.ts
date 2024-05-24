@@ -15,22 +15,23 @@ export class GildedRose {
   }
 
   updateQuality() {
-    this.items.forEach((item) => {
-      console.log(item.name);
-      switch (item.name) {
+    for (let i = 0; i < this.items.length; i++) {
+      switch (this.items[i].name) {
         case "Aged Brie":
-          return updateAgedBrie(item);
+          this.items[i] = updateAgedBrie(this.items[i]);
+          break;
         case "Backstage passes to a TAFKAL80ETC concert":
-          return updateBackstagePasses(item);
+          this.items[i] = updateBackstagePasses(this.items[i]);
+          break;
         case "Sulfuras, Hand of Ragnaros":
-          return updateSulfuras(item);
+          this.items[i] = updateSulfuras(this.items[i]);
+          break;
         default:
-          return item.name.startsWith("Conjured")
-            ? updateConjured(item)
-            : updateMislaniousItems(item);
+          this.items[i] = this.items[i].name.startsWith("Conjured")
+            ? updateConjured(this.items[i])
+            : updateMislaniousItems(this.items[i]);
       }
-    });
-
+    }
     return this.items;
   }
 }

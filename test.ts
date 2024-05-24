@@ -17,7 +17,7 @@ const items = [
 const gildedRose = new GildedRose(items);
 
 // Days to simulate sell-in days.
-const days = 6;
+const days = 2;
 
 // loop over the days and update the quality of items
 for (let day = 0; day < days; day++) {
