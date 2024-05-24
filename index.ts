@@ -20,6 +20,21 @@ export class GildedRose {
   updateQuality() {
     // Loop over the items and update the quality and sellIn days
     for (let i = 0; i < this.items.length; i++) {
+      //  If current item is a Conjured item
+      if (this.items[i].name.startsWith("Conjured")) {
+        // if current item quality is greater than 0
+        if (this.items[i].quality > 0) {
+          // decrease the quality of the Conjured item so its 2*1
+
+          console.log(
+            `going to decrease quality of ${this.items[i].name} by 2 from ${
+              this.items[i].quality
+            } to ${this.items[i].quality - 2}`
+          );
+          this.items[i].quality = this.items[i].quality - 2;
+        }
+      }
+
       //   if current item is not Aged Brie and Backstage passes
       if (
         this.items[i].name != "Aged Brie" &&
