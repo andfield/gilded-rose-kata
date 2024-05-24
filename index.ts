@@ -1,2 +1,2 @@
 export { Item } from "./src/Item";
-export { GildedRose } from "./src/GildedRose";
+export { GildedRose } from "./src/Gilded-rose";
