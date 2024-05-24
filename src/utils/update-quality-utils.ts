@@ -15,6 +15,7 @@ The quality and sellin of Sulfuras never changes
 const updateAgedBrie = (item: Item): Item => ({
   ...item,
   quality: Math.min(item.quality + 1, 50),
+  sellIn: item.sellIn - 1,
 });
 
 const updateBackstagePasses = (item: Item): Item => {
@@ -23,6 +24,7 @@ const updateBackstagePasses = (item: Item): Item => {
   }
   return {
     ...item,
+    sellIn: item.sellIn - 1,
     quality: Math.min(
       item.sellIn <= 5
         ? item.quality + 3
@@ -38,12 +40,14 @@ const updateSulfuras = (item: Item): Item => ({ ...item });
 
 const updateConjured = (item: Item): Item => ({
   ...item,
+  sellIn: item.sellIn - 1,
   quality: Math.max(item.quality - 2, 0),
 });
 
 const updateMislaniousItems = (item: Item): Item => {
   return {
     ...item,
+    sellIn: item.sellIn - 1,
     quality: Math.max(item.sellIn < 0 ? item.quality - 2 : item.quality - 1, 0),
   };
 };
