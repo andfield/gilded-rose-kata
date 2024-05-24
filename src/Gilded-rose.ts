@@ -1,4 +1,11 @@
 import type { Item } from "./Item";
+import {
+  updateAgedBrie,
+  updateBackstagePasses,
+  updateConjured,
+  updateMislaniousItems,
+  updateSulfuras,
+} from "./utils/update-quality-utils";
 
 export class GildedRose {
   items: Array<Item>;
@@ -8,8 +15,20 @@ export class GildedRose {
   }
 
   updateQuality() {
-    // Loop over the items and update the quality and sellIn days
-    for (let i = 0; i < this.items.length; i++) {}
+    this.items = this.items.map((item) => {
+      switch (item.name) {
+        case "Aged Brie":
+          return updateAgedBrie(item);
+        case "Backstage passes to a TAFKAL80ETC concert":
+          return updateBackstagePasses(item);
+        case "Sulfuras, Hand of Ragnaros":
+          return updateSulfuras(item);
+        default:
+          return item.name.startsWith("Conjured")
+            ? updateConjured(item)
+            : updateMislaniousItems(item);
+      }
+    });
 
     return this.items;
   }
